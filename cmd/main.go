@@ -1,17 +1,18 @@
 package main
 
 import (
-	"net/http"
+	"fmt"
 
-	"github.com/go-chi/chi"
-	"github.com/go-chi/chi/middleware"
+	"product_discount/pkg/http"
 )
 
 func main() {
-	r := chi.NewRouter()
-	r.Use(middleware.Logger)
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("welcome"))
-	})
-	http.ListenAndServe(":3000", r)
+	fmt.Println("Starting...")
+
+	serverConfig := http.ServerConfig{
+		Source:     "localhost",
+		SourcePort: "8000",
+	}
+
+	http.Init(serverConfig)
 }
