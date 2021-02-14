@@ -4,16 +4,16 @@ import (
 	"net/http"
 )
 
+//ServerConfig is the server data config
 type ServerConfig struct {
 	Source     string
 	SourcePort string
 }
 
-func Init(config ServerConfig) {
-	routes := make([]Route, 0)
-	routes = append(routes, NewProductController())
+//Init start the http server
+func Init(config ServerConfig, controllers []Route) {
 
-	router := NewRouter(routes)
+	router := NewRouter(controllers)
 	router.CreateRoutes()
 
 	http.ListenAndServe(":"+config.SourcePort, router.Get())
