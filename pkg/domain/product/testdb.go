@@ -28,10 +28,10 @@ func (r *repo) FindAll() ([]*Product, error) {
 	return products, nil
 }
 
-func (r *repo) Update(user *Product) error {
+func (r *repo) Update(product *Product) error {
 	return nil
 }
 
-func (r *repo) Store(user *Product) (string, error) {
+func (r *repo) Store(product *Product) (string, error) {
 	return "", nil
 }

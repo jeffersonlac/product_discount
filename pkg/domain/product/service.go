@@ -19,7 +19,19 @@ func (s Service) List() ([]*Product, error) {
 	products, error := s.repo.FindAll()
 	if error != nil {
 		fmt.Printf("Error listing products: %v\n", error)
+		return nil, error
 	}
 
 	return products, nil
+}
+
+//Find find the product by id
+func (s Service) Find(id string) (*Product, error) {
+	product, error := s.repo.Find(id)
+	if error != nil {
+		fmt.Printf("Error searching product: %v\n", error)
+		return nil, error
+	}
+
+	return product, nil
 }

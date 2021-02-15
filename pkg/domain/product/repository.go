@@ -11,6 +11,6 @@ type Reader interface {
 }
 
 type Writer interface {
-	Update(user *Product) error
-	Store(user *Product) (string, error)
+	Update(product *Product) error
+	Store(product *Product) (string, error)
 }
